@@ -1,0 +1,20 @@
+<div>
+
+    <h1>Search</h1>
+
+    <form ngNativeValidate (ngSubmit)="search()">
+<label>Enter text to search:</label><br>
+<input type = "search" name="serachText" [(ngModel)] ="searchText" required >
+
+<button>🔍</button>
+    </form>
+<hr>
+
+<app-book-card *ngFor="let b of books" [book]="b" (deleteMe)="deleteThisBook($event)"></app-book-card>
+
+<!---If the client searched for books that do not match the search, in that case they put a message like this using ngIf and then a condition ---->
+<h3 *ngIf="books?.length === 0">There are no books for containing your search text</h3>
+
+
+
+</div>
